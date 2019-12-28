@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const App = () => {
-  return <div>hello world sadfasdfds</div>;
+  return (
+    <div>
+      <button className="btn btn-primary">Hello</button>
+    </div>
+  );
 };
 export default App;
