@@ -1,5 +1,5 @@
 import React from "react";
-import getIssue from "../resources/fakeIssuesServer";
+import getIssue from "../resources/fakeIssuesServer.json";
 
 const getIcon = type => {
   let icon;
