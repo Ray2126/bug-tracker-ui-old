@@ -46,7 +46,14 @@ const Navbar = () => {
                 Projects
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
+                {fakeProjectsServer.map(project => (
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      {project.title}
+                    </a>
+                  </li>
+                ))}
+                {/* <li>
                   <a className="dropdown-item" href="#">
                     Action
                   </a>
@@ -61,7 +68,7 @@ const Navbar = () => {
                   <a className="dropdown-item" href="#">
                     Something else here
                   </a>
-                </li>
+                </li> */}
               </ul>
             </li>
 
