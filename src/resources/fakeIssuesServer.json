@@ -46,5 +46,53 @@
     "date": "29/10/2019",
     "description": "Nav not responsive",
     "type": "job"
+  },
+  {
+    "id": 7,
+    "title": "Log in doesn't work",
+    "asignee": "Webber",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "bug"
+  },
+  {
+    "id": 8,
+    "title": "NavBar doesn't work",
+    "asignee": "Ray",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "bug"
+  },
+  {
+    "id": 9,
+    "title": "Drop down",
+    "asignee": "Tim",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "feature"
+  },
+  {
+    "id": 10,
+    "title": "Log in doesn't work",
+    "asignee": "Will",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "bug"
+  },
+  {
+    "id": 11,
+    "title": "Log in doesn't work",
+    "asignee": "Bob",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "feature"
+  },
+  {
+    "id": 12,
+    "title": "Nav not responsive",
+    "asignee": "James",
+    "date": "29/10/2019",
+    "description": "Nav not responsive",
+    "type": "job"
   }
 ]

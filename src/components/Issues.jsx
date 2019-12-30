@@ -18,33 +18,56 @@ const getIcon = type => {
   return "fas fa-" + icon;
 };
 
+const displayLegend = type => {
+  let icon;
+
+  switch (type) {
+    case "bug":
+      icon = "bug";
+      break;
+    case "job":
+      icon = "job";
+      break;
+    case "feature":
+      icon = "feature";
+      break;
+  }
+  return icon;
+};
+
+const onMouseOver = e => {
+  return "bug";
+};
+
 const Issues = () => {
   return (
+    // <div class="list-group">
+    //   {getIssue.map(issue => (
+    //     <a href="#" class="list-group-item list-group-item-action">
+    //       <i class={getIcon(issue.type)}></i> {issue.title} {issue.description}{" "}
+    //       {issue.asignee}
+    //     </a>
+    //   ))}
+    // </div>
+
     <div class="list-group">
       {getIssue.map(issue => (
         <a href="#" class="list-group-item list-group-item-action">
-          <i class={getIcon(issue.type)}></i> {issue.title} {issue.description}{" "}
-          {issue.asignee}
+          <div class="d-flex w-100 justify-content-between">
+            <i
+              class={getIcon(issue.type)}
+              onMouseOver={() => {
+                console.log(displayLegend(issue.type));
+              }}
+            />
+            <h6 class="mb-1">
+              {" "}
+              {issue.title} - {issue.description}
+            </h6>
+            <small>{issue.asignee}</small>
+          </div>
         </a>
       ))}
-
-      <a href="#" class="list-group-item list-group-item-action active">
-        Dapibus ac facilisis in
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">
-        Morbi leo risus
-      </a>
-      <a href="#" class="list-group-item list-group-item-action">
-        Porta ac consectetur ac
-      </a>
-      <a
-        href="#"
-        class="list-group-item list-group-item-action disabled"
-        tabindex="-1"
-        aria-disabled="true"
-      >
-        Vestibulum at eros
-      </a>
     </div>
   );
 };
