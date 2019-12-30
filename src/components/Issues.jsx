@@ -1,33 +1,50 @@
 import React from "react";
+import getIssue from "../resources/fakeIssuesServer";
+
+const getIcon = type => {
+  let icon;
+
+  switch (type) {
+    case "bug":
+      icon = "bug";
+      break;
+    case "job":
+      icon = "lemon";
+      break;
+    case "feature":
+      icon = "mouse-pointer";
+      break;
+  }
+  return "fas fa-" + icon;
+};
 
 const Issues = () => {
   return (
     <div class="list-group">
-      <button
-        type="button"
-        class="list-group-item list-group-item-action active"
-      >
-        Cras justo odio
-      </button>
-      <button
-        type="button"
-        class="list-group-item list-group-item-action list-group-item-sm"
-      >
+      {getIssue.map(issue => (
+        <a href="#" class="list-group-item list-group-item-action">
+          <i class={getIcon(issue.type)}></i> {issue.title} {issue.description}{" "}
+          {issue.asignee}
+        </a>
+      ))}
+
+      <a href="#" class="list-group-item list-group-item-action active">
         Dapibus ac facilisis in
-      </button>
-      <button type="button" class="list-group-item list-group-item-action">
+      </a>
+      <a href="#" class="list-group-item list-group-item-action">
         Morbi leo risus
-      </button>
-      <button type="button" class="list-group-item list-group-item-action">
+      </a>
+      <a href="#" class="list-group-item list-group-item-action">
         Porta ac consectetur ac
-      </button>
-      <button
-        type="button"
-        class="list-group-item list-group-item-action"
-        disabled
+      </a>
+      <a
+        href="#"
+        class="list-group-item list-group-item-action disabled"
+        tabindex="-1"
+        aria-disabled="true"
       >
         Vestibulum at eros
-      </button>
+      </a>
     </div>
   );
 };

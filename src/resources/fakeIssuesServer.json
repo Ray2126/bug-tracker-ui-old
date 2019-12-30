@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Log in doesn't work",
+    "asignee": "Webber",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "bug"
+  },
+  {
+    "id": 2,
+    "title": "NavBar doesn't work",
+    "asignee": "Ray",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "bug"
+  },
+  {
+    "id": 3,
+    "title": "Drop down",
+    "asignee": "Tim",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "feature"
+  },
+  {
+    "id": 4,
+    "title": "Log in doesn't work",
+    "asignee": "Will",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "bug"
+  },
+  {
+    "id": 5,
+    "title": "Log in doesn't work",
+    "asignee": "Bob",
+    "date": "29/10/2019",
+    "description": "The log in page doesn't work",
+    "type": "feature"
+  },
+  {
+    "id": 6,
+    "title": "Nav not responsive",
+    "asignee": "James",
+    "date": "29/10/2019",
+    "description": "Nav not responsive",
+    "type": "job"
+  }
+]
