@@ -120,19 +120,67 @@ const Issues = () => {
             aria-haspopup="true"
             aria-expanded="false"
           >
+            <i class="fas fa-filter"></i>
+          </button>
+          {/* <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
             <button class="dropdown-item" type="button">
-            type="button"
+              N
+            </button>
+          </div> */}
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
               id="defaultCheck1"
             />
-            <h6 class="mb-1">
-              {" "}
-              {issue.title} - {issue.description}
-            </h6>
-            <small>{issue.asignee}</small>
+            <label class="form-check-label" for="defaultCheck1">
+              Default checkbox
+            </label>
+          </div>
+        </dropDown>
+
+        <dropDown>
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenu3"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <h4>Shapes</h4>
+          </button>
+          {/* <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+            <button class="dropdown-item" type="button">
+              N
+            </button>
+          </div> */}
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="defaultCheck1"
+            />
+            <fieldset>
+              <div class="checkbox">
+                <input type="checkbox" value=".square" />
+                <label>Square</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" value=".circle" />
+                <label>Circle</label>
+              </div>
+              <div class="checkbox">
+                <input type="checkbox" value=".triangle" />
+                <label>Triangle</label>
+              </div>
             </fieldset>
           </div>
-        </a>
-      ))}
+        </dropDown>
+      </div>
+
       <fieldset>
         <h4>Shapes</h4>
         <div class="checkbox">
