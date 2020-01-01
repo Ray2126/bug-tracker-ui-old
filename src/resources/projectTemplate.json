@@ -1,0 +1,41 @@
+[
+  {
+    "projectID": 1,
+    "projectName": "Project 1",
+    "projectMembers": [
+      {
+        "id": 1,
+        "name": "Raymond",
+        "role": ["Developer", "QA"],
+        "avatar": "avatar icon",
+        "assignedIssueIDs": [1, 2, 3, 4, 5]
+      }
+    ],
+    "issues": [
+      {
+        "id": 1,
+        "title": "Log in doesn't work",
+        "assigneeIDs": [1, 2, 3],
+        "date": "29/10/2019",
+        "description": "The log in page doesn't work",
+        "type": ["bug", "feature"],
+        "author": "Webber",
+        "priority": "low priority",
+        "dueDate": "12/12/2020",
+        "comment": [
+          {
+            "id": 1,
+            "author": "Webber",
+            "description": "Fix this bug mothafucka",
+            "reaction": [
+              {
+                "upvote": 2,
+                "downvote": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
