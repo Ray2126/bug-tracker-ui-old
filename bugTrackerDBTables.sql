@@ -8,7 +8,7 @@ CREATE TABLE projects (
 CREATE TABLE priority (
 	priority_id UUID NOT NULL PRIMARY KEY,
 	priority_type VARCHAR(15) NOT NULL CHECK(priority_type = 'low' OR priority_type = 'med' OR 
-		priority_type = 'high' OR priority_type = 'urgent')
+		priority_type = 'high' OR priority_type = 'urgent'),
 	priority_image_url VARCHAR(50) NOT NULL,
 	UNIQUE (priority_type),
 	UNIQUE (priority_image_url)
