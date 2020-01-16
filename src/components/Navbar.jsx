@@ -1,7 +1,9 @@
 import React from "react";
 import fakeProjectsServer from "../resources/fakeProjectsServer.json";
+import { useAuth0 } from "../react-auth0-spa";
 
 const Navbar = () => {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
   return (
     <div>
       <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
@@ -35,6 +37,13 @@ const Navbar = () => {
               </ul>
             </li>
             <button className="btn btn-success">New Project</button>
+            {!isAuthenticated && (
+              <button onClick={() => loginWithRedirect({})}>Log in</button>
+            )}
+            {isAuthenticated && (
+              <button onClick={() => logout()}>Log out</button>
+            )}
+            {console.log(isAuthenticated)}
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item dropdown">
