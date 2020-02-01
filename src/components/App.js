@@ -5,6 +5,11 @@ import Issues from "./Issues/Issues";
 import SecondNav from "./SecondNav/SecondNav";
 import { useAuth0 } from "../react-auth0-spa";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Router, Route, Switch } from "react-router-dom";
+import Profile from "./Profile";
+import history from "../utils/history";
+import { Nav } from "react-bootstrap";
+import PrivateRoute from "./PrivateRoute";
 
 const App = () => {
   const { loading } = useAuth0();
@@ -13,11 +18,17 @@ const App = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div>
-      {/* <StartPage /> */}
-      <NavBar />
-      <SecondNav />
-      <Issues />
+    <div className="App">
+      <Router history={history}>
+        {/* <StartPage /> */}
+        <NavBar />
+        <SecondNav />
+        <Issues />
+        <Switch>
+          <Route path="/" exact />
+          <PrivateRoute path="/profile" component={Profile} />
+        </Switch>
+      </Router>
     </div>
   );
 };

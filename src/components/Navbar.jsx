@@ -1,6 +1,7 @@
 import React from "react";
 import fakeProjectsServer from "../resources/fakeProjectsServer.json";
 import { useAuth0 } from "../react-auth0-spa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -37,13 +38,19 @@ const Navbar = () => {
               </ul>
             </li>
             <button className="btn btn-success">New Project</button>
-            {!isAuthenticated && (
-              <button onClick={() => loginWithRedirect({})}>Log in</button>
+            {isAuthenticated && (
+              <span>
+                <Link to="/">Home</Link>&nbsp;
+                <Link to="/profile">Profile</Link>
+              </span>
             )}
             {isAuthenticated && (
               <button onClick={() => logout()}>Log out</button>
             )}
-            {console.log(isAuthenticated)}
+
+            {!isAuthenticated && (
+              <button onClick={() => loginWithRedirect({})}>Log in</button>
+            )}
           </ul>
           <ul className="navbar-nav">
             <li className="nav-item dropdown">
