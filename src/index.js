@@ -7,6 +7,10 @@ import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-spa";
 import config from "./auth_config.json";
 import history from "./utils/history";
+import reduxThunk from "redux-thunk";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import reducers from "./reducers";
 
 const onRedirectCallback = appState => {
   history.push(
@@ -16,6 +20,12 @@ const onRedirectCallback = appState => {
   );
 };
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(reduxThunk))
+);
+
 ReactDOM.render(
   <Auth0Provider
     domain={config.domain}
@@ -23,7 +33,9 @@ ReactDOM.render(
     redirect_uri={`${window.location.origin}/main`}
     onRedirectCallback={onRedirectCallback}
   >
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Auth0Provider>,
   document.querySelector("#root")
 );
