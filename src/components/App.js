@@ -1,6 +1,6 @@
 import React from "react";
 import StartPage from "./StartPage";
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 import Issues from "./Issues/Issues";
 import SecondNav from "./SecondNav/SecondNav";
 import { useAuth0 } from "../react-auth0-spa";
@@ -11,6 +11,8 @@ import history from "../utils/history";
 import { Nav } from "react-bootstrap";
 import PrivateRoute from "./PrivateRoute";
 
+import IssuesPage from "./IssuesPage";
+
 const App = () => {
   const { loading } = useAuth0();
 
@@ -20,12 +22,9 @@ const App = () => {
   return (
     <div className="App">
       <Router history={history}>
-        {/* <StartPage /> */}
-        <NavBar />
-        <SecondNav />
-        <Issues />
         <Switch>
-          <Route path="/" exact />
+          <Route path="/" exact component={StartPage} />
+          <Route path="/main" exact component={IssuesPage} />
           <PrivateRoute path="/profile" component={Profile} />
         </Switch>
       </Router>

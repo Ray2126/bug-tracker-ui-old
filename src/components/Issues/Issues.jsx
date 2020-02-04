@@ -88,27 +88,27 @@ const Issues = () => {
 
   return (
     <div className="issue-list">
-      <div class="list-group">
+      <div className="list-group">
         {getProjectData.map(project => (
           <div>
             {project.issues.map(issue => (
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h6 class="mb-1">
+              <a href="#" className="list-group-item list-group-item-action">
+                <div className="d-flex w-100 justify-content-between">
+                  <h6 className="mb-1">
                     {issue.id}
                     {issue.title} - {issue.description}{" "}
                     {issue.type.map(type => {
-                      return <i class={getIssueTypeIcon(type)} />;
+                      return <i className={getIssueTypeIcon(type)} />;
                     })}
                   </h6>
                   <small>{issue.assigneeIDs}</small>
                 </div>
-                <div class="d-flex w-100 justify-content-between">
-                  <small class="mb-1">
+                <div className="d-flex w-100 justify-content-between">
+                  <small className="mb-1">
                     Reported by: {issue.author} on: {issue.reportDate}
                   </small>
                   <small
-                    class="badge badge-secondary"
+                    className="badge badge-secondary"
                     style={{
                       backgroundColor: setPriorityColour(issue.priority)
                     }}
@@ -122,7 +122,7 @@ const Issues = () => {
         ))}
       </div>
       <small>
-        <i class="far fa-copyright"></i> Created by 2 jacked brothers
+        <i className="far fa-copyright"></i> Created by 2 jacked brothers
       </small>
     </div>
   );

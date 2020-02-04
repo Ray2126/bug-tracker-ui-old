@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./react-auth0-spa";
@@ -20,7 +20,7 @@ ReactDOM.render(
   <Auth0Provider
     domain={config.domain}
     client_id={config.clientId}
-    redirect_uri={window.location.origin}
+    redirect_uri={`${window.location.origin}/main`}
     onRedirectCallback={onRedirectCallback}
   >
     <App />

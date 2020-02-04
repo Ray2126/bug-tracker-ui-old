@@ -1,101 +1,50 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Navbar, Nav, NavDropdown, Button } from "react-bootstrap";
+
 import fakeProjectsServer from "../resources/fakeProjectsServer.json";
 import { useAuth0 } from "../react-auth0-spa";
-import { Link } from "react-router-dom";
 
-const Navbar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+const NavBar = () => {
+  const { isAuthenticated, logout } = useAuth0();
   return (
-    <div>
-      <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-          Bug Tracker
-        </a>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="#">Bug Tracker</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <NavDropdown title="Projects" id="basic-nav-dropdown">
+            {fakeProjectsServer.map(project => (
+              <NavDropdown.Item>{project.title}</NavDropdown.Item>
+            ))}
+          </NavDropdown>
+          <Button variant="success" href="#">
+            New Project
+          </Button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Projects
-              </a>
+          {isAuthenticated && (
+            <span>
+              <Link to="/profile">Profile</Link>
+            </span>
+          )}
 
-              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                {fakeProjectsServer.map(project => (
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      {project.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </li>
-            <button className="btn btn-success">New Project</button>
-            {isAuthenticated && (
-              <span>
-                <Link to="/">Home</Link>&nbsp;
-                <Link to="/profile">Profile</Link>
-              </span>
-            )}
-            {isAuthenticated && (
-              <button onClick={() => logout()}>Log out</button>
-            )}
+          {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
+        </Nav>
 
-            {!isAuthenticated && (
-              <button onClick={() => loginWithRedirect({})}>Log in</button>
-            )}
-          </ul>
-          <ul className="navbar-nav">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <i className="fas fa-portrait fa-3x"></i>
-              </a>
-
-              <ul
-                className="dropdown-menu dropdown-menu-right text-center"
-                aria-labelledby="navbarDropdown"
-              >
-                <li>
-                  <h4>Username</h4>
-                </li>
-                <hr></hr>
-                <li className="my-1">
-                  <a href="#" className="text-dark">
-                    Profile
-                  </a>
-                </li>
-                <li className="my-1">
-                  <a href="#" className="text-dark">
-                    Settings
-                  </a>
-                </li>
-                <li className="my-1">
-                  <a href="#" className="text-danger">
-                    <span className="font-weight-bold">Sign out</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+        <NavDropdown
+          title={<i className="fas fa-portrait fa-3x" />}
+          id="nav-dropdown"
+          alignRight
+        >
+          <NavDropdown.Item>{<h4>Username</h4>}</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item>Profile</NavDropdown.Item>
+          <NavDropdown.Item>Settings</NavDropdown.Item>
+          <NavDropdown.Item>Sign Out</NavDropdown.Item>
+        </NavDropdown>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default NavBar;
