@@ -6,8 +6,7 @@ import fakeProjectsServer from "../resources/fakeProjectsServer.json";
 import { useAuth0 } from "../react-auth0-spa";
 
 const NavBar = () => {
-  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-
+  const { isAuthenticated, logout } = useAuth0();
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand href="#">Bug Tracker</Navbar.Brand>
@@ -25,15 +24,11 @@ const NavBar = () => {
 
           {isAuthenticated && (
             <span>
-              <Link to="/">Home</Link>&nbsp;
               <Link to="/profile">Profile</Link>
             </span>
           )}
-          {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
 
-          {!isAuthenticated && (
-            <Button onClick={() => loginWithRedirect({})}>Log in</Button>
-          )}
+          {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
         </Nav>
 
         <NavDropdown
