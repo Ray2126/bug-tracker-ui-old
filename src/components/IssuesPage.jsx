@@ -6,7 +6,6 @@ import Issues from "./Issues/Issues";
 const IssuesPage = () => {
   return (
     <div>
-      <NavBar />
       <SecondNav />
       <Issues />
     </div>

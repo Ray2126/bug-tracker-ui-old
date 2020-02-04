@@ -13,6 +13,14 @@ import PrivateRoute from "./PrivateRoute";
 
 import IssuesPage from "./IssuesPage";
 
+const NavWrapped = () => (
+  <React.Fragment>
+    <NavBar />
+    <Route path="/main" exact component={IssuesPage} />
+    <PrivateRoute path="/profile" component={Profile} />
+  </React.Fragment>
+);
+
 const App = () => {
   const { loading } = useAuth0();
 
@@ -24,8 +32,7 @@ const App = () => {
       <Router history={history}>
         <Switch>
           <Route path="/" exact component={StartPage} />
-          <Route path="/main" exact component={IssuesPage} />
-          <PrivateRoute path="/profile" component={Profile} />
+          <Route component={NavWrapped} />
         </Switch>
       </Router>
     </div>
