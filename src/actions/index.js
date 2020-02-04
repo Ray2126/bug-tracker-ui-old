@@ -1,5 +1,5 @@
 import {
-  FETCH_PROJECTS,
+  FETCH_PROJECTS_BY_USER,
   FETCH_PROJECT,
   CREATE_PROJECT,
   FETCH_ISSUES,
@@ -16,3 +16,15 @@ import {
   REMOVE_USER_FROM_PROJECT
 } from "./types";
 import axios from "../axiosConfig";
+
+export const fetchProjects = user_id => async dispatch => {
+  const response = await axios.get(`/userProjects/user/${user_id}`);
+
+  dispatch({ type: FETCH_PROJECTS_BY_USER, payload: response.data });
+};
+
+export const fetchProject = project_id => async dispatch => {
+  const response = await axios.get(`/projects/${project_id}`);
+
+  dispatch({ type: FETCH_PROJECT, payload: response.data });
+};
