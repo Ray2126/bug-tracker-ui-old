@@ -1,6 +1,6 @@
 import React from "react";
 import StartPage from "./StartPage";
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 import Issues from "./Issues/Issues";
 import SecondNav from "./SecondNav/SecondNav";
 import { useAuth0 } from "../react-auth0-spa";
